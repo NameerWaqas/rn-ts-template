@@ -1,6 +1,7 @@
 package com.nameerwaqas.rn.template;
 
 import com.facebook.react.ReactActivity;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +13,10 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "Template";
   }
+
+  // React Navigation
+  @Override
+protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(null);
+}
 }
