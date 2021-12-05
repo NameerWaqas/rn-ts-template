@@ -1,20 +1,23 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
  * @format
  * @flow strict-local
  */
-
-import React, {FC} from 'react';
+import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/es/integration/react';
 // Locals
+import {persistor, store} from './src/store';
 import {Navigation} from './src/navigation';
 
-const App: FC = () => {
+const App = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Navigation />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Navigation />
+        </PersistGate>
+      </Provider>
     </SafeAreaView>
   );
 };
